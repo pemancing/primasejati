@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects Gallery | Prima Sejati Construction</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #f7f7f7; 
+        }
+        .text-orange-main { color: #F59E0B; }
+        .text-blue-main { color : #0f0a54;}
+        .text-bblue-main { color : #095dc0;}
+        .bg-orange-main { background-color: #F59E0B; }
+        .bg-blue-main { background-color: #0f0a54; }
+        .bg-bblue-main { background-color: #095dc0; }
+        
+        /* Animasi transisi saat filter diklik */
+        .project-card { transition: all 0.5s ease; }
+        .project-card.hidden { display: none; opacity: 0; transform: scale(0.95); }
+    </style>
+</head>
+<body class="bg-[#f7f7f7] text-[#000000]">
+
+    <nav class="flex justify-between items-center py-6 px-8 md:px-16 border-b border-gray-200 bg-white sticky top-0 z-50">
+        <div class="flex items-center space-x-3">
+            <img src="assets/head-logo.png" alt="Logo Prima Sejati" class="h-20 w-auto">
+            <span class="text-l font-bold tracking-tighter lowercase text-blue-main">Your Construction Partner</span> 
+        </div>
+        <div class="hidden md:flex space-x-8 text-sm font-bold uppercase tracking-widest text-gray-600">
+            <a href="index.html" class="hover:text-blue-main transition">Home</a>
+            <a href="projects.html" class="text-blue-main border-b-2 border-blue-main pb-1">Projects</a>
+            <a href="index.html#services" class="hover:text-blue-main transition">Services</a>
+            <a href="index.html#about" class="hover:text-blue-main transition">About</a>
+            <a href="index.html#contact" class="hover:text-blue-main transition text-blue-main">Contact</a>
+        </div>
+    </nav>
+
+    <header class="px-8 md:px-16 py-20 max-w-7xl mx-auto">
+        <div class="flex items-center space-x-4 mb-6">
+            <div class="h-[2px] w-12 bg-bblue-main"></div>
+            <span class="text-blue-main text-sm font-bold tracking-widest uppercase text-blue-main">Portfolio</span>
+        </div>
+        <h1 class="text-5xl md:text-7xl font-extrabold leading-none mb-12 tracking-tighter">
+            WORK <span class="text-blue-main uppercase">GALLERY</span>
+        </h1>
+
+        <div class="flex flex-wrap gap-3 mb-16 border-b border-gray-200 pb-8">
+            <button onclick="filterSelection('all')" class="btn-filter active bg-blue-main text-white px-8 py-3 rounded-sm font-bold uppercase text-xs tracking-widest transition">All Projects</button>
+            <button onclick="filterSelection('finished')" class="btn-filter border border-gray-300 px-8 py-3 rounded-sm font-bold uppercase text-xs tracking-widest hover:bg-white transition">Finished</button>
+            <button onclick="filterSelection('wip')" class="btn-filter border border-gray-300 px-8 py-3 rounded-sm font-bold uppercase text-xs tracking-widest hover:bg-white transition">In Progress (WIP)</button>
+            <button onclick="filterSelection('design')" class="btn-filter border border-gray-300 px-8 py-3 rounded-sm font-bold uppercase text-xs tracking-widest hover:bg-white transition">Design</button>
+            <button onclick="filterSelection('products')" class="btn-filter border border-gray-300 px-8 py-3 rounded-sm font-bold uppercase text-xs tracking-widest hover:bg-white transition">Products</button>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="projectContainer">
+            
+            <div class="project-card finished group relative overflow-hidden h-[500px] bg-gray-200 shadow-md">
+                <img src="assets/joglo1.jpeg" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
+                <div class="absolute bottom-8 left-8">
+                    <span class="text-orange-main text-xs font-bold uppercase mb-2 block tracking-widest">Finished</span>
+                    <h4 class="text-2xl font-bold uppercase tracking-tight text-white">Rumah Joglo Modern</h4>
+                </div>
+            </div>
+
+            <div class="project-card wip group relative overflow-hidden h-[500px] bg-gray-200 shadow-md">
+                <img src="assets/wip1.jpg" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
+                <div class="absolute bottom-8 left-8">
+                    <span class="text-orange-main text-xs font-bold uppercase mb-2 block tracking-widest">Work In Progress</span>
+                    <h4 class="text-2xl font-bold uppercase tracking-tight text-white">Rangka Kanopi</h4>
+                </div>
+            </div>
+
+            <div class="project-card products group relative overflow-hidden h-[500px] bg-gray-200 shadow-md">
+                <img src="assets/product1.jpg" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
+                <div class="absolute bottom-8 left-8">
+                    <span class="text-orange-main text-xs font-bold uppercase mb-2 block tracking-widest">Our Product</span>
+                    <h4 class="text-2xl font-bold uppercase tracking-tight text-white">Pagar Besi</h4>
+                </div>
+            </div>
+
+            <div class="project-card design group relative overflow-hidden h-[500px] bg-gray-200 shadow-md">
+                <img src="assets/design1.jpeg" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
+                <div class="absolute bottom-8 left-8">
+                    <span class="text-orange-main text-xs font-bold uppercase mb-2 block tracking-widest">Design</span>
+                    <h4 class="text-2xl font-bold uppercase tracking-tight text-white">3D Design</h4>
+                </div>
+            </div>
+
+        </div>
+    </header>
+
+    <section class="py-24 px-8 md:px-16 bg-blue-main text-white text-center">
+        <h3 class="text-3xl font-extrabold uppercase mb-6 tracking-tighter">Punya Proyek Serupa?</h3>
+        <p class="text-gray-400 mb-10 max-w-xl mx-auto font-medium">Jangan ragu untuk konsultasi. Kami siap memberikan solusi teknis terbaik untuk visi Anda.</p>
+        <a href="https://wa.me/628111252588" class="bg-orange-main text-black font-bold px-10 py-5 rounded shadow-2xl hover:bg-yellow-400 transition uppercase tracking-widest inline-block">
+            Chat WhatsApp Sekarang
+        </a>
+    </section>
+
+    <footer class="bg-white py-10 px-8 md:px-16 border-t border-gray-200 text-center">
+        <div class="flex justify-center items-center space-x-3 mb-6">
+            <img src="assets/head-logo.png" alt="Logo Prima Sejati" class="h-8 w-auto">
+            <span class="text-xl font-extrabold tracking-tighter uppercase text-blue-main">Prima Sejati</span>
+        </div>
+        <p class="text-gray-400 text-[10px] uppercase tracking-[0.2em] font-bold">
+            &copy; 2026 Prima Sejati Construction. All rights reserved.
+        </p>
+    </footer>
+
+    <script>
+        function filterSelection(c) {
+            var x, i;
+            x = document.getElementsByClassName("project-card");
+            if (c == "all") c = "";
+            for (i = 0; i < x.length; i++) {
+                x[i].classList.add("hidden");
+                if (x[i].className.indexOf(c) > -1) {
+                    x[i].classList.remove("hidden");
+                }
+            }
+            
+            // Logika ganti warna tombol aktif
+            var btns = document.getElementsByClassName("btn-filter");
+            for (var j = 0; j < btns.length; j++) {
+                btns[j].classList.remove("bg-blue-main", "text-white");
+                btns[j].classList.add("border", "border-gray-300");
+            }
+            event.currentTarget.classList.add("bg-blue-main", "text-white");
+            event.currentTarget.classList.remove("border", "border-gray-300");
+        }
+    </script>
+
+</body>
+</html>
