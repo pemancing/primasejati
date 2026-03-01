@@ -19,7 +19,7 @@
         .bg-bblue-main { background-color: #095dc0; }
         
         /* Animasi transisi saat filter diklik */
-        .project-card { transition: all 0.5s ease; }
+        .project-card { transition: all 0.5s ease; cursor: pointer; }
         .project-card.hidden { display: none; opacity: 0; transform: scale(0.95); }
     </style>
 </head>
@@ -58,8 +58,8 @@
 
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="projectContainer">
             
-            <div class="project-card finished group relative overflow-hidden h-[500px] bg-gray-200 shadow-md">
-                <img src="assets/joglo1.jpeg" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-700">
+            <div class="project-card finished group relative overflow-hidden h-[500px] bg-gray-200 shadow-md cursor-pointer" data-folder="rumah_joglo" data-count="1">
+                <img src="assets/slides/rumah_joglo/1.jpg" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-700">
                 <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
                 <div class="absolute bottom-8 left-8">
                     <span class="text-orange-main text-xs font-bold uppercase mb-2 block tracking-widest">Finished</span>
@@ -67,8 +67,8 @@
                 </div>
             </div>
 
-            <div class="project-card wip group relative overflow-hidden h-[500px] bg-gray-200 shadow-md">
-                <img src="assets/wip1.jpg" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-700">
+            <div class="project-card wip group relative overflow-hidden h-[500px] bg-gray-200 shadow-md cursor-pointer" data-folder="rangka_kanopi" data-count="2">
+                <img src="assets/slides/rangka_kanopi/1.jpg" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-700">
                 <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
                 <div class="absolute bottom-8 left-8">
                     <span class="text-orange-main text-xs font-bold uppercase mb-2 block tracking-widest">Work In Progress</span>
@@ -76,8 +76,8 @@
                 </div>
             </div>
 
-            <div class="project-card products group relative overflow-hidden h-[500px] bg-gray-200 shadow-md">
-                <img src="assets/product1.jpg" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-700">
+            <div class="project-card products group relative overflow-hidden h-[500px] bg-gray-200 shadow-md cursor-pointer" data-folder="pagar_besi" data-count="1">
+                <img src="assets/slides/pagar_besi/1.jpg" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-700">
                 <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
                 <div class="absolute bottom-8 left-8">
                     <span class="text-orange-main text-xs font-bold uppercase mb-2 block tracking-widest">Our Product</span>
@@ -85,8 +85,8 @@
                 </div>
             </div>
 
-            <div class="project-card design group relative overflow-hidden h-[500px] bg-gray-200 shadow-md">
-                <img src="assets/design1.jpeg" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-700">
+            <div class="project-card design group relative overflow-hidden h-[500px] bg-gray-200 shadow-md cursor-pointer" data-folder="design_3d" data-count="1">
+                <img src="assets/slides/design_3d/1.jpg" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-700">
                 <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
                 <div class="absolute bottom-8 left-8">
                     <span class="text-orange-main text-xs font-bold uppercase mb-2 block tracking-widest">Design</span>
@@ -115,7 +115,30 @@
         </p>
     </footer>
 
+    <div id="gallery-modal" class="fixed inset-0 z-[100] bg-black/95 hidden items-center justify-center opacity-0 transition-opacity duration-300">
+        <button onclick="closeGallery()" class="absolute top-6 right-8 text-white hover:text-orange-main transition z-50">
+            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+        
+        <button onclick="changePhoto(-1)" class="absolute left-4 md:left-10 text-white hover:text-orange-main p-3 bg-black/40 hover:bg-black/80 rounded-full transition z-50">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+        </button>
+
+        <div class="w-full h-[85vh] flex items-center justify-center p-4">
+            <img id="gallery-img" src="" class="max-h-full max-w-full object-contain shadow-2xl border-b-4 border-orange-main rounded-sm">
+        </div>
+
+        <button onclick="changePhoto(1)" class="absolute right-4 md:right-10 text-white hover:text-orange-main p-3 bg-black/40 hover:bg-black/80 rounded-full transition z-50">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        </button>
+
+        <div class="absolute bottom-8 text-white font-bold tracking-widest text-sm bg-black/50 px-6 py-2 rounded-full">
+            <span id="photo-current" class="text-orange-main">1</span> / <span id="photo-total">3</span>
+        </div>
+    </div>
+
     <script>
+        // --- 1. FUNGSI FILTER ---
         function filterSelection(c) {
             var x, i;
             x = document.getElementsByClassName("project-card");
@@ -126,8 +149,6 @@
                     x[i].classList.remove("hidden");
                 }
             }
-            
-            // Logika ganti warna tombol aktif
             var btns = document.getElementsByClassName("btn-filter");
             for (var j = 0; j < btns.length; j++) {
                 btns[j].classList.remove("bg-blue-main", "text-white");
@@ -136,7 +157,61 @@
             event.currentTarget.classList.add("bg-blue-main", "text-white");
             event.currentTarget.classList.remove("border", "border-gray-300");
         }
-    </script>
 
+        // --- 2. FUNGSI GALLERY MODAL ---
+        const modal = document.getElementById('gallery-modal');
+        const modalImg = document.getElementById('gallery-img');
+        const currentNum = document.getElementById('photo-current');
+        const totalNum = document.getElementById('photo-total');
+        
+        let currentPhotos = [];
+        let currentIndex = 0;
+
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const folderName = card.getAttribute('data-folder');
+                const photoCount = parseInt(card.getAttribute('data-count'));
+                
+                currentPhotos = [];
+                for(let i = 1; i <= photoCount; i++) {
+                    currentPhotos.push(`assets/slides/${folderName}/${i}.jpg`);
+                }
+                
+                currentIndex = 0;
+                openGallery();
+            });
+        });
+
+        function openGallery() {
+            modal.classList.remove('hidden');
+            setTimeout(() => modal.classList.add('flex', 'opacity-100'), 10);
+            document.body.style.overflow = 'hidden';
+            updatePhoto();
+        }
+
+        function closeGallery() {
+            modal.classList.remove('opacity-100');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+            }, 300);
+            document.body.style.overflow = 'auto';
+        }
+
+        function updatePhoto() {
+            modalImg.src = currentPhotos[currentIndex];
+            currentNum.textContent = currentIndex + 1;
+            totalNum.textContent = currentPhotos.length;
+        }
+
+        function changePhoto(step) {
+            currentIndex = (currentIndex + step + currentPhotos.length) % currentPhotos.length;
+            updatePhoto();
+        }
+
+        modal.addEventListener('click', (e) => {
+            if(e.target === modal) closeGallery();
+        });
+    </script>
 </body>
 </html>
