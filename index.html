@@ -3,14 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects Gallery | Prima Sejati Construction</title>
+    <title>Prima Sejati Construction | Build Excellence</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
     <style>
-        body { 
-            font-family: 'Inter', sans-serif; 
-            background-color: #f7f7f7; 
-        }
+        body { font-family: 'Inter', sans-serif; background-color: #f7f7f7; }
         .text-orange-main { color: #F59E0B; }
         .text-blue-main { color : #0f0a54;}
         .text-bblue-main { color : #095dc0;}
@@ -18,9 +15,8 @@
         .bg-blue-main { background-color: #0f0a54; }
         .bg-bblue-main { background-color: #095dc0; }
         
-        /* Animasi transisi saat filter diklik */
+        /* Animasi transisi cursor */
         .project-card { transition: all 0.5s ease; cursor: pointer; }
-        .project-card.hidden { display: none; opacity: 0; transform: scale(0.95); }
     </style>
 </head>
 <body class="bg-[#f7f7f7] text-[#000000]">
@@ -31,134 +27,265 @@
             <span class="text-l font-bold tracking-tighter lowercase text-blue-main">Your Construction Partner</span> 
         </div>
         <div class="hidden md:flex space-x-8 text-sm font-bold uppercase tracking-widest text-gray-600">
-            <a href="index.html" class="hover:text-blue-main transition">Home</a>
-            <a href="projects.html" class="text-blue-main border-b-2 border-blue-main pb-1">Projects</a>
-            <a href="index.html#services" class="hover:text-blue-main transition">Services</a>
-            <a href="index.html#about" class="hover:text-blue-main transition">About</a>
-            <a href="index.html#contact" class="hover:text-blue-main transition text-blue-main">Contact</a>
+            <a href="index.html" class="text-blue-main border-b-2 border-blue-main pb-1">Home</a>
+            <a href="projects.html" class="hover:text-blue-main transition">Projects</a>
+            <a href="#services" class="hover:text-blue-main transition">Services</a>
+            <a href="#about" class="hover:text-blue-main transition">About</a>
+            <a href="#contact" class="hover:text-blue-main transition">Contact</a>
         </div>
     </nav>
 
-    <header class="px-8 md:px-16 py-20 max-w-7xl mx-auto">
+    <section class="px-8 md:px-16 py-20 md:py-32 max-w-7xl mx-auto">
         <div class="flex items-center space-x-4 mb-6">
             <div class="h-[2px] w-12 bg-bblue-main"></div>
-            <span class="text-blue-main text-sm font-bold tracking-widest uppercase text-blue-main">Portfolio</span>
+            <span class="text-blue-main text-sm font-bold tracking-widest uppercase">Since 1992</span>
         </div>
-        <h1 class="text-5xl md:text-7xl font-extrabold leading-none mb-12 tracking-tighter">
-            WORK <span class="text-blue-main uppercase">GALLERY</span>
+        
+        <h1 class="text-6xl md:text-8xl font-extrabold leading-none mb-8 tracking-tighter">
+            CONSTRUCTION<br>
+            <span class="text-blue-main uppercase"> PARTNER </span>
         </h1>
+        
+        <p class="max-w-xl text-gray-700 text-lg mb-10 leading-relaxed font-medium">
+            Partner konstruksi anda dengan pengalaman lebih dari 30 tahun yang berkomitmen kuat terhadap kualitas, integritas, konsistensi.
+        </p>
 
-        <div class="flex flex-wrap gap-3 mb-16 border-b border-gray-200 pb-8">
-            <button onclick="filterSelection('all')" class="btn-filter active bg-blue-main text-white px-8 py-3 rounded-sm font-bold uppercase text-xs tracking-widest transition">All Projects</button>
-            <button onclick="filterSelection('finished')" class="btn-filter border border-gray-300 px-8 py-3 rounded-sm font-bold uppercase text-xs tracking-widest hover:bg-white transition">Finished</button>
-            <button onclick="filterSelection('wip')" class="btn-filter border border-gray-300 px-8 py-3 rounded-sm font-bold uppercase text-xs tracking-widest hover:bg-white transition">In Progress (WIP)</button>
-            <button onclick="filterSelection('design')" class="btn-filter border border-gray-300 px-8 py-3 rounded-sm font-bold uppercase text-xs tracking-widest hover:bg-white transition">Design</button>
-            <button onclick="filterSelection('products')" class="btn-filter border border-gray-300 px-8 py-3 rounded-sm font-bold uppercase text-xs tracking-widest hover:bg-white transition">Products</button>
+        <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 mb-20">
+            <a href="projects.html" class="bg-bblue-main text-white font-bold px-8 py-4 rounded-sm hover:bg-blue-400 transition uppercase text-sm tracking-widest shadow-lg text-center">
+                View Our Work &rarr;
+            </a>
+            <a href="https://wa.me/628111252588" target="_blank" class="border-2 border-blue-main text-blue-main font-bold px-8 py-4 rounded-sm hover:bg-blue-main hover:text-white transition uppercase text-sm tracking-widest text-center">
+                ask us!
+            </a>
         </div>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="projectContainer">
-            
-            <div class="project-card finished group relative overflow-hidden h-[500px] bg-gray-200 shadow-md cursor-pointer" data-folder="rumah_joglo" data-count="6">
-                <img src="assets/slides/rumah_joglo/1.jpg" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-700">
-                <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
-                <div class="absolute bottom-8 left-8">
-                    <span class="text-orange-main text-xs font-bold uppercase mb-2 block tracking-widest">Finished</span>
-                    <h4 class="text-2xl font-bold uppercase tracking-tight text-white">Rumah Joglo Modern</h4>
-                </div>
+        <div class="grid grid-cols-3 gap-8 border-t border-gray-300 pt-12 max-w-2xl">
+            <div>
+                <h3 class="text-4xl font-extrabold text-blue-main">500+</h3>
+                <p class="text-gray-600 text-xs font-bold uppercase tracking-widest mt-2">Projects</p>
             </div>
-
-            <div class="project-card wip group relative overflow-hidden h-[500px] bg-gray-200 shadow-md cursor-pointer" data-folder="rangka_kanopi" data-count="6">
-                <img src="assets/slides/rangka_kanopi/1.jpg" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-700">
-                <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
-                <div class="absolute bottom-8 left-8">
-                    <span class="text-orange-main text-xs font-bold uppercase mb-2 block tracking-widest">Work In Progress</span>
-                    <h4 class="text-2xl font-bold uppercase tracking-tight text-white">Rangka Kanopi</h4>
-                </div>
+            <div>
+                <h3 class="text-4xl font-extrabold text-blue-main">30+</h3>
+                <p class="text-gray-600 text-xs font-bold uppercase tracking-widest mt-2">Years</p>
             </div>
-
-            <div class="project-card products group relative overflow-hidden h-[500px] bg-gray-200 shadow-md cursor-pointer" data-folder="pagar_besi" data-count="9">
-                <img src="assets/slides/pagar_besi/1.jpg" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-700">
-                <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
-                <div class="absolute bottom-8 left-8">
-                    <span class="text-orange-main text-xs font-bold uppercase mb-2 block tracking-widest">Our Product</span>
-                    <h4 class="text-2xl font-bold uppercase tracking-tight text-white">Pagar Besi</h4>
-                </div>
+            <div>
+                <h3 class="text-4xl font-extrabold text-blue-main">100%</h3>
+                <p class="text-gray-600 text-xs font-bold uppercase tracking-widest mt-2">Licensed</p>
             </div>
-
-            <div class="project-card design group relative overflow-hidden h-[500px] bg-gray-200 shadow-md cursor-pointer" data-folder="design_3d" data-count="2">
-                <img src="assets/slides/design_3d/1.jpg" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-700">
-                <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
-                <div class="absolute bottom-8 left-8">
-                    <span class="text-orange-main text-xs font-bold uppercase mb-2 block tracking-widest">Design</span>
-                    <h4 class="text-2xl font-bold uppercase tracking-tight text-white">3D Design</h4>
-                </div>
-            </div>
-
         </div>
-    </header>
-
-    <section class="py-24 px-8 md:px-16 bg-blue-main text-white text-center">
-        <h3 class="text-3xl font-extrabold uppercase mb-6 tracking-tighter">Punya Proyek Serupa?</h3>
-        <p class="text-gray-400 mb-10 max-w-xl mx-auto font-medium">Jangan ragu untuk konsultasi. Kami siap memberikan solusi teknis terbaik untuk visi Anda.</p>
-        <a href="https://wa.me/628111252588" class="bg-orange-main text-black font-bold px-10 py-5 rounded shadow-2xl hover:bg-yellow-400 transition uppercase tracking-widest inline-block">
-            Chat WhatsApp Sekarang
-        </a>
     </section>
 
-    <footer class="bg-white py-10 px-8 md:px-16 border-t border-gray-200 text-center">
-        <div class="flex justify-center items-center space-x-3 mb-6">
-            <img src="assets/head-logo.png" alt="Logo Prima Sejati" class="h-8 w-auto">
-            <span class="text-xl font-extrabold tracking-tighter uppercase text-blue-main">Prima Sejati</span>
+    <section id="services" class="bg-white py-24 px-8 md:px-16 border-y border-gray-200">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex justify-between items-end mb-12">
+                <div>
+                    <div class="flex items-center space-x-4 mb-4">
+                        <div class="h-[2px] w-12 bg-orange-main"></div>
+                        <span class="text-blue-main text-sm font-bold tracking-widest uppercase">Portfolio</span>
+                    </div>
+                    <h2 class="text-4xl font-extrabold uppercase tracking-tighter">Featured <span class="text-blue-main">Projects</span></h2>
+                </div>
+                <a href="projects.html" class="text-gray-500 hover:text-black text-xs font-bold uppercase tracking-widest">View All Projects &rarr;</a>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="project-card group relative overflow-hidden h-[500px] bg-gray-200 shadow-md rounded-sm" data-folder="rumah_joglo" data-count="6">
+                    <img src="assets/slides/rumah_joglo/1.jpg" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80 group-hover:opacity-90 transition"></div>
+                    <div class="absolute bottom-8 left-8">
+                        <span class="text-orange-main text-xs font-bold uppercase mb-2 block tracking-widest">Finished</span>
+                        <h4 class="text-2xl font-bold uppercase tracking-tight text-white">Rumah Joglo Modern</h4>
+                    </div>
+                </div>
+
+                <div class="project-card group relative overflow-hidden h-[500px] bg-gray-200 shadow-md rounded-sm" data-folder="rangka_kanopi" data-count="6">
+                    <img src="assets/slides/rangka_kanopi/1.jpg" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80 group-hover:opacity-90 transition"></div>
+                    <div class="absolute bottom-8 left-8">
+                        <span class="text-orange-main text-xs font-bold uppercase mb-2 block tracking-widest">Work In Progress</span>
+                        <h4 class="text-2xl font-bold uppercase tracking-tight text-white">Rangka Kanopi</h4>
+                    </div>
+                </div>
+
+                <div class="project-card group relative overflow-hidden h-[500px] bg-gray-200 shadow-md rounded-sm" data-folder="pagar_besi" data-count="9">
+                    <img src="assets/slides/pagar_besi/1.jpg" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80 group-hover:opacity-90 transition"></div>
+                    <div class="absolute bottom-8 left-8">
+                        <span class="text-orange-main text-xs font-bold uppercase mb-2 block tracking-widest">Our Product</span>
+                        <h4 class="text-2xl font-bold uppercase tracking-tight text-white">Pagar Besi</h4>
+                    </div>
+                </div>
+            </div>
         </div>
-        <p class="text-gray-400 text-[10px] uppercase tracking-[0.2em] font-bold">
+    </section>
+
+    <section id="about" class="py-24 px-8 md:px-16 max-w-7xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-16 items-center">
+            <div>
+                <div class="flex items-center space-x-4 mb-4">
+                    <div class="h-[2px] w-12 bg-bblue-main"></div>
+                    <span class="text-blue-main text-sm font-bold tracking-widest uppercase">About Us</span>
+                </div>
+                <h2 class="text-4xl font-extrabold uppercase tracking-tighter mb-6">Membangun Dengan <span class="text-blue-main">Integritas</span></h2>
+                <p class="text-gray-700 leading-relaxed mb-6">Prima Sejati adalah workshop konstruksi yang berdedikasi untuk memberikan solusi pembangunan berkualitas tinggi sejak tahun 1992. Kami ahli dalam fabrikasi besi, konstruksi baja, dan renovasi bangunan dengan standar keamanan yang ketat.</p>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="border-l-4 border-orange-main pl-4">
+                        <h4 class="font-bold uppercase text-xs text-gray-400 tracking-widest">Visi</h4>
+                        <p class="text-sm font-bold">Menjadi partner konstruksi nomor satu di Tangerang.</p>
+                    </div>
+                    <div class="border-l-4 border-orange-main pl-4">
+                        <h4 class="font-bold uppercase text-xs text-gray-400 tracking-widest">Misi</h4>
+                        <p class="text-sm font-bold">Kualitas maksimal dengan budget yang rasional.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-gray-200 h-96 rounded-lg overflow-hidden shadow-xl">
+                 <img src="assets/slides/rangka_kanopi/1.jpg" class="w-full h-full object-cover">
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 px-8 md:px-16 max-w-7xl mx-auto text-center">
+        <div class="flex justify-center items-center space-x-4 mb-4 mx-auto">
+            <div class="h-[2px] w-12 bg-orange-main"></div>
+            <span class="text-blue-main text-sm font-bold tracking-widest uppercase text-center">Google Reviews</span>
+            <div class="h-[2px] w-12 bg-orange-main"></div>
+        </div>
+        <h2 class="text-5xl font-extrabold uppercase tracking-tighter mb-16">Client <span class="text-blue-main">Trust</span></h2>
+
+        <div class="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+            <div class="bg-white p-8 border border-gray-200 text-left shadow-lg flex flex-col justify-between">
+                <div>
+                    <div class="text-blue-main mb-4 text-xl">★★★★★</div>
+                    <p class="text-gray-700 italic mb-8 font-medium">"Mantap.. hasil nya bagus dan berkualitas.. Ditunggu order an berikutnya dari saya pak"</p>
+                </div>
+                <div class="flex items-center space-x-4 border-t border-gray-100 pt-4">
+                    <div class="w-10 h-10 bg-blue-main rounded-full flex items-center justify-center font-bold text-white text-xs shadow-inner">B0</div>
+                    <div>
+                        <p class="font-bold text-sm uppercase">benz 02</p>
+                        <p class="text-[10px] text-gray-500 font-bold uppercase tracking-wider">Local Guide • Google Review</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white p-8 border border-gray-200 text-left shadow-lg flex flex-col justify-between">
+                <div>
+                    <div class="text-blue-main mb-4 text-xl">★★★★★</div>
+                    <p class="text-gray-700 italic mb-8 font-medium">"Prima Sejati melampaui setiap ekspektasi kami. budget rendah dengan hasil maksimal"</p>
+                </div>
+                <div class="flex items-center space-x-4 border-t border-gray-100 pt-4">
+                    <div class="w-10 h-10 bg-orange-main rounded-full flex items-center justify-center font-bold text-white text-xs shadow-inner">AT</div>
+                    <div>
+                        <p class="font-bold text-sm uppercase">Abbi Trevor</p>
+                        <p class="text-[10px] text-gray-500 font-bold uppercase tracking-wider">CEO, Kebun Warga • Google Review</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white p-8 border border-gray-200 text-left shadow-lg flex flex-col justify-between">
+                <div>
+                    <div class="text-blue-main mb-4 text-xl">★★★★★</div>
+                    <p class="text-gray-700 italic mb-8 font-medium">"Pengerjaan rapi, tepat waktu, dan komunikatif. Sangat direkomendasikan untuk konstruksi besi."</p>
+                </div>
+                <div class="flex items-center space-x-4 border-t border-gray-100 pt-4">
+                    <div class="w-10 h-10 bg-gray-400 rounded-full flex items-center justify-center font-bold text-white text-xs shadow-inner">PS</div>
+                    <div>
+                        <p class="font-bold text-sm uppercase">Verified Client</p>
+                        <p class="text-[10px] text-gray-500 font-bold uppercase tracking-wider">Verified • Google Review</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-12">
+            <a href="https://share.google/Kpt6mCChOIU4UAWa1" target="_blank" class="text-blue-main font-bold text-sm uppercase tracking-widest hover:text-orange-main transition border-b border-blue-main hover:border-orange-main pb-1">
+                Baca semua review di Google Maps →
+            </a>
+        </div>
+    </section>
+
+    <section id="contact" class="py-24 px-8 md:px-16 bg-blue-main text-white">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+            <div>
+                <h2 class="text-4xl font-extrabold uppercase mb-6 tracking-tighter">Ready to <span class="text-orange-main">Build?</span></h2>
+                <p class="text-gray-400 mb-8">Konsultasikan kebutuhan proyek Anda sekarang. Tim kami akan memberikan penawaran terbaik dalam waktu kurang dari 24 jam.</p>
+                <a href="https://wa.me/628111252588" class="bg-orange-main text-black font-bold px-10 py-5 rounded shadow-2xl hover:bg-yellow-400 transition uppercase tracking-widest inline-block">
+                    Chat WhatsApp Sekarang
+                </a>
+            </div>
+            <div class="bg-white p-8 rounded shadow-2xl text-black">
+                <form action="#" method="POST" class="space-y-4">
+                    <input type="text" name="name" placeholder="Nama Lengkap" class="w-full border-b-2 border-gray-200 p-2 focus:border-orange-main outline-none" required>
+                    <input type="email" name="email" placeholder="Email Anda" class="w-full border-b-2 border-gray-200 p-2 focus:border-orange-main outline-none" required>
+                    <textarea name="message" placeholder="Jelaskan kebutuhan proyek Anda..." rows="4" class="w-full border-b-2 border-gray-200 p-2 focus:border-orange-main outline-none" required></textarea>
+                    <button type="submit" class="w-full bg-blue-main text-white py-3 font-bold uppercase tracking-widest hover:bg-gray-800 transition">Kirim Pesan</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-white pt-20 pb-10 px-8 md:px-16 border-t border-gray-200">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-12 mb-16">
+            <div class="col-span-1 md:col-span-1">
+                <div class="flex items-center space-x-3 mb-6">
+                    <img src="assets/head-logo.png" alt="Logo Prima Sejati" class="h-8 w-auto">
+                    <span class="text-xl font-extrabold tracking-tighter uppercase text-blue-main">Prima Sejati</span>
+                </div>
+                <p class="text-gray-600 text-sm leading-relaxed font-medium">30+ years experience for Design, Build & Construction</p>
+            </div>
+            
+            <div>
+                <h5 class="font-bold uppercase tracking-widest text-xs mb-6 text-gray-400">Services</h5>
+                <ul class="text-gray-700 text-sm space-y-4 font-bold">
+                    <li><a href="#services" class="hover:text-blue-main">Commercial Construction</a></li>
+                    <li><a href="#services" class="hover:text-blue-main">Residential Building</a></li>
+                    <li><a href="#services" class="hover:text-blue-main">Renovations</a></li>
+                    <li><a href="#services" class="hover:text-blue-main">Project Management</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h5 class="font-bold uppercase tracking-widest text-xs mb-6 text-gray-400">Contact</h5>
+                <ul class="text-gray-700 text-sm space-y-4 font-bold">
+                    <li class="flex items-start"><span class="mr-2">📍</span> Jl. Ciater Barat, Tangerang, Banten 15310</li>
+                    <li class="flex items-center"><span class="mr-2">📞</span> 0811-1252-588</li>
+                    <li class="flex items-center"><span class="mr-2">✉️</span> primasejati90@yahoo.com</li>
+                </ul>
+            </div>
+
+            <div>
+                <h5 class="font-bold uppercase tracking-widest text-xs mb-6 text-gray-400">Certifications</h5>
+                <div class="flex space-x-2">
+                    <div class="w-12 h-12 bg-white rounded flex items-center justify-center text-[8px] font-bold text-gray-400 border border-gray-200 uppercase">OSHA</div>
+                    <div class="w-12 h-12 bg-white rounded flex items-center justify-center text-[8px] font-bold text-gray-400 border border-gray-200 uppercase">LEED</div>
+                    <div class="w-12 h-12 bg-white rounded flex items-center justify-center text-[8px] font-bold text-gray-400 border border-gray-200 uppercase">BBB</div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center text-gray-400 text-[10px] uppercase tracking-[0.2em] pt-10 border-t border-gray-100 font-bold">
             &copy; 2026 Prima Sejati Construction. All rights reserved.
-        </p>
+        </div>
     </footer>
 
     <div id="gallery-modal" class="fixed inset-0 z-[100] bg-black/95 hidden items-center justify-center opacity-0 transition-opacity duration-300">
         <button onclick="closeGallery()" class="absolute top-6 right-8 text-white hover:text-orange-main transition z-50">
             <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
         </button>
-        
         <button onclick="changePhoto(-1)" class="absolute left-4 md:left-10 text-white hover:text-orange-main p-3 bg-black/40 hover:bg-black/80 rounded-full transition z-50">
             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
         </button>
-
         <div class="w-full h-[85vh] flex items-center justify-center p-4">
             <img id="gallery-img" src="" class="max-h-full max-w-full object-contain shadow-2xl border-b-4 border-orange-main rounded-sm">
         </div>
-
         <button onclick="changePhoto(1)" class="absolute right-4 md:right-10 text-white hover:text-orange-main p-3 bg-black/40 hover:bg-black/80 rounded-full transition z-50">
             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
         </button>
-
         <div class="absolute bottom-8 text-white font-bold tracking-widest text-sm bg-black/50 px-6 py-2 rounded-full">
             <span id="photo-current" class="text-orange-main">1</span> / <span id="photo-total">3</span>
         </div>
     </div>
 
     <script>
-        // --- 1. FUNGSI FILTER ---
-        function filterSelection(c) {
-            var x, i;
-            x = document.getElementsByClassName("project-card");
-            if (c == "all") c = "";
-            for (i = 0; i < x.length; i++) {
-                x[i].classList.add("hidden");
-                if (x[i].className.indexOf(c) > -1) {
-                    x[i].classList.remove("hidden");
-                }
-            }
-            var btns = document.getElementsByClassName("btn-filter");
-            for (var j = 0; j < btns.length; j++) {
-                btns[j].classList.remove("bg-blue-main", "text-white");
-                btns[j].classList.add("border", "border-gray-300");
-            }
-            event.currentTarget.classList.add("bg-blue-main", "text-white");
-            event.currentTarget.classList.remove("border", "border-gray-300");
-        }
-
-        // --- 2. FUNGSI GALLERY MODAL ---
         const modal = document.getElementById('gallery-modal');
         const modalImg = document.getElementById('gallery-img');
         const currentNum = document.getElementById('photo-current');
@@ -172,7 +299,6 @@
                 const folderName = card.getAttribute('data-folder');
                 const photoCount = parseInt(card.getAttribute('data-count'));
                 
-                // Rakit array gambar otomatis
                 currentPhotos = [];
                 for(let i = 1; i <= photoCount; i++) {
                     currentPhotos.push(`assets/slides/${folderName}/${i}.jpg`);
@@ -210,7 +336,6 @@
             updatePhoto();
         }
 
-        // Klik di luar gambar untuk tutup
         modal.addEventListener('click', (e) => {
             if(e.target === modal) closeGallery();
         });
